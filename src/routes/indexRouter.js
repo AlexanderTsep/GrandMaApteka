@@ -9,4 +9,5 @@ router.get('/', async (req, res) => {
   res.render('Layout', initState);
 });
 
+
 export default router;
