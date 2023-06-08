@@ -6,7 +6,7 @@ import SingUpPage from './pages/SingUpPage';
 import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 
-export default function App({ userData }) {
+export default function App({ userData, cards }) {
   return (
     <div className="container">
       <Navbar />
