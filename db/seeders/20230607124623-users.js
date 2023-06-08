@@ -6,7 +6,7 @@ module.exports = {
       [
         {
           userName: 'admin',
-          seconName: 'admin',
+          secondName: 'admin',
           sex: 'admin',
           email: 'admin@apteka.ru',
           password: 'admin',
