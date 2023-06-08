@@ -1,12 +1,14 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import { User } from '../../db/models';
+import bodyParser from 'body-parser';
+import transport from '../../mailer/nodemailer';
 
 const apiAuthRouter = express.Router();
 
 apiAuthRouter.post('/signup', async (req, res) => {
   const { userName, email, password } = req.body;
-  if (!userName || !email || !password) {
+  if (!userName || !secondName || !sex || !email || !password) {
     res.status(400).json({ message: 'no user full data' });
   }
   const searchEmail = await userName.findOne({
@@ -18,11 +20,18 @@ apiAuthRouter.post('/signup', async (req, res) => {
   const hashPass = await bcrypt.hash(password, 10);
   const newUser = await User.create({
     userName,
+    secondName,
+    sex,
     email,
     password: hashPass,
   });
-  req.session.user = { id: newUser.id, name: newUser.name, email: newUser.email };
-
+  req.session.user = { id: newUser.id, name: newUser.userName, email: newUser.email };
+  await transport.sendMail({
+    from: '<cahek5610@gmail.com>', 
+    to: `${req.session.user.newUser.email}`, 
+    subject: "Социальная аптека", 
+    text: "Поздравляем! Регистрация прошла успешно!", 
+  })
   res.sendStatus(200);
 });
 
