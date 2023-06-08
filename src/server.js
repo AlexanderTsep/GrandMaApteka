@@ -5,7 +5,7 @@ import store from 'session-file-store';
 import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
+import authRouter from './routes/authRouter';
 
 require('dotenv').config();
 
@@ -41,6 +41,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/auth', authRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

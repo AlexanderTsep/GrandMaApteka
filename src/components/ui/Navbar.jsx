@@ -23,7 +23,7 @@ export default function Navbar() {
             <a className="nav-link" href="/auth/signup">
               SignUp
             </a>
-            <a className="nav-link" href="/auth/singin">
+            <a className="nav-link" href="/auth/signin">
               SignIn
             </a>
             <a className="nav-link" href="/account">

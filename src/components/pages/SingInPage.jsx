@@ -1,8 +1,4 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 export default function SignInPage() {
@@ -21,22 +17,30 @@ export default function SignInPage() {
   };
 
   return (
-    <Row>
-      <Col>
-        <Form onSubmit={(e) => submitHandler(e)}>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>email</Form.Label>
-            <Form.Control type="email" name="email" placeholder="name@example.com" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>пароль</Form.Label>
-            <Form.Control type="password" name="password" placeholder="password" />
-          </Form.Group>
-          <Button type="submit" variant="primary">
-            Войти
-          </Button>
-        </Form>
-      </Col>
-    </Row>
+    <form onSubmit={(e) => submitHandler(e)}>
+      <div className="mb-3">
+        <label htmlFor="exampleFormControl" className="form-label">
+          Email
+        </label>
+        <input
+          type="email"
+          className="form-control"
+          id="exampleFormControl"
+          placeholder="введите email"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="exampleFormControl" className="form-label">
+          Пароль
+        </label>
+        <input
+          type="password"
+          className="form-control"
+          id="exampleFormControl"
+          placeholder="введите пароль"
+        />
+      </div>
+      <button type="button" class="btn btn-outline-primary">войти</button>
+    </form>
   );
 }
