@@ -6,6 +6,7 @@ export default function UpdateForm({ oneUserData, setOneUserData }) {
     userName: oneUserData.userName,
     secondName: oneUserData.secondName,
     sex: oneUserData.sex,
+    email: oneUserData.email,
   });
 
   const changeUpHandler = (event) => {
@@ -15,11 +16,13 @@ export default function UpdateForm({ oneUserData, setOneUserData }) {
   const updateHandler = async (event) => {
     event.preventDefault();
     const responce = await axios.patch(`/api/user/${oneUserData.id}`, updateData);
-    setOneUserData((prev) => prev.map((el) => (el.id === oneUserData.id ? responce.data : el)));
+    console.log(responce.data);
+    setOneUserData((prev) => ({ ...prev, ...responce.data }));
     setUpdateData({
       userName: oneUserData.userName,
       secondName: oneUserData.secondName,
       sex: oneUserData.sex,
+      email: oneUserData.email,
     });
   };
   return (
@@ -62,6 +65,19 @@ export default function UpdateForm({ oneUserData, setOneUserData }) {
         <input
           name="sex"
           value={updateData.sex}
+          onChange={changeUpHandler}
+          type="text"
+          className="form-control"
+          id="basic-url"
+          aria-describedby="basic-addon3 basic-addon4"
+        />
+      </div>
+      <br />
+      <div className="input-group">
+        <span className="input-group-text">Почта</span>
+        <input
+          name="email"
+          value={updateData.email}
           onChange={changeUpHandler}
           type="text"
           className="form-control"

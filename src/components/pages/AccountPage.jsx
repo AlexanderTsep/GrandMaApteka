@@ -31,6 +31,12 @@ export default function AccountPage({ userData }) {
                 </span>
                 <h5 className="card-title">{oneUserData.sex}</h5>
               </div>
+              <div className="col-md-6">
+                <span className="text" id="basic-addon2">
+                  Почта:
+                </span>
+                <h5 className="card-title">{oneUserData.email}</h5>
+              </div>
               <br />
             </div>
             <br />

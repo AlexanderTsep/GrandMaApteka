@@ -27,6 +27,9 @@ module.exports = {
           key: 'id',
         },
       },
+      availability: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

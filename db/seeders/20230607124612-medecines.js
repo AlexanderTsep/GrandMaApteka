@@ -11,6 +11,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_63a1469a-611a-4dc0-a232-80db7684c09d.webp',
           price: '125',
           catId: '1',
+          availability: true,
         },
         {
           name: 'Лазолван 7,5 мг/мл раствор для ингаляций 100 мл',
@@ -19,6 +20,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_44bdc826-ed03-4006-8d10-2df4dbdb3a76.webp',
           price: '387',
           catId: '2',
+          availability: false,
         },
         {
           name: 'Пиковит форте 30 шт.',
@@ -27,6 +29,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_0f1fe4e1-6774-4c40-8fa8-a20f327902bc.webp',
           price: '448',
           catId: '3',
+          availability: true,
         },
         {
           name: 'Пароксетин 20 мг 30 шт.',
@@ -35,6 +38,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_8b2613ed-7706-43df-a732-018b69bb3c21.webp',
           price: '378',
           catId: '4',
+          availability: false,
         },
         {
           name: 'Клималанин таб., 400 мг, 30 шт.',
@@ -43,6 +47,7 @@ module.exports = {
           img: 'https://avatars.mds.yandex.net/get-mpic/2016828/img_id3506494173120959471.jpeg/orig',
           price: '567',
           catId: '5',
+          availability: true,
         },
         {
           name: 'Лотонел 5 мг 30 шт. блистер таблетки',
@@ -51,6 +56,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_9c34e270-4378-4046-8c1a-2835d06f29f2.webp',
           price: '378',
           catId: '6',
+          availability: true,
         },
         {
           name: 'Фитолакс мармеладные ягоды 30 шт.',
@@ -59,6 +65,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_4705873e-054f-49ff-9e06-3431458d5c5c.webp',
           price: '520',
           catId: '7',
+          availability: true,
         },
         {
           name: 'Гевискон флакон суспензия для приема внутрь 150 мл',
@@ -67,6 +74,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_55b261af-0eb4-4daa-976d-caff04310232.webp',
           price: '321',
           catId: '8',
+          availability: false,
         },
         {
           name: 'Набор Гилан Комфорт 0,4 мл №10 кап',
@@ -75,6 +83,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_2c3d79bf-1fb4-4f53-bc5f-ce9934557947.webp',
           price: '369',
           catId: '9',
+          availability: true,
         },
         {
           name: 'Делсия 3 мг + 0,03 мг 21 шт. таблетки',
@@ -83,6 +92,7 @@ module.exports = {
           img: 'https://images.apteka.ru/medium_33b990c1-87c1-44f7-acfe-c421295c4206.webp',
           price: '806',
           catId: '10',
+          availability: false,
         },
       ],
       {},

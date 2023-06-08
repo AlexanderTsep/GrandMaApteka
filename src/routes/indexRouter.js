@@ -1,10 +1,12 @@
 import express from 'express';
 import { User } from '../../db/models';
+import { Medecine } from '../../db/models';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  const initState = { hello: 'world' };
+router.get('/', async (req, res) => {
+  const cards = await Medecine.findAll();
+  const initState = { cards };
   res.render('Layout', initState);
 });
 

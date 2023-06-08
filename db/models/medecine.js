@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Category, { foreignKey: 'catId' });
-      this.belongsTo(models.Trash, {foreignKey: 'medId'})
+      this.belongsToMany(models.Trash, {
+        through: 'MedTrash',
+        foreignKey: 'medId',
+      });
     }
   }
   Medecine.init(
@@ -19,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       img: DataTypes.STRING,
       price: DataTypes.INTEGER,
       catId: DataTypes.INTEGER,
+      availability: DataTypes.BOOLEAN,
     },
     {
       sequelize,
