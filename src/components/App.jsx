@@ -6,15 +6,15 @@ import SingUpPage from './pages/SingUpPage';
 import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 
-export default function App({cards}) {
+export default function App({ userData, cards }) {
   return (
     <div className="container">
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage cards={cards}/>} />
+        <Route path="/" element={<HomePage cards={cards} />} />
         <Route path="/auth/signup" element={<SingUpPage />} />
-        <Route path="/auth/signin" element={<SingInPage />} />
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/auth/singin" element={<SingInPage />} />
+        <Route path="/account" element={<AccountPage userData={userData} />} />
       </Routes>
     </div>
   );
