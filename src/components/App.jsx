@@ -7,7 +7,7 @@ import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 import CartPage from './pages/CartPage';
 
-export default function App({ userData, cards, trashData }) {
+export default function App({ user, userData, cards, trashData }) {
   const [trashState, setTrashState] = useState(trashData);
   return (
     <div className="container">
