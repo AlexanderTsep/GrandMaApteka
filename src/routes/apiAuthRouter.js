@@ -1,17 +1,17 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import { User } from '../../db/models';
-import bodyParser from 'body-parser';
-import transport from '../../mailer/nodemailer';
+// import bodyParser from 'body-parser';
+// import transport from '../../mailer/nodemailer';
 
 const apiAuthRouter = express.Router();
 
 apiAuthRouter.post('/signup', async (req, res) => {
-  const { userName, email, password } = req.body;
+  const { userName, secondName, sex, email, password } = req.body;
   if (!userName || !secondName || !sex || !email || !password) {
     res.status(400).json({ message: 'no user full data' });
   }
-  const searchEmail = await userName.findOne({
+  const searchEmail = await User.findOne({
     where: { email },
   });
   if (searchEmail) {
@@ -26,12 +26,12 @@ apiAuthRouter.post('/signup', async (req, res) => {
     password: hashPass,
   });
   req.session.user = { id: newUser.id, name: newUser.userName, email: newUser.email };
-  await transport.sendMail({
-    from: '<cahek5610@gmail.com>', 
-    to: `${req.session.user.newUser.email}`, 
-    subject: "Социальная аптека", 
-    text: "Поздравляем! Регистрация прошла успешно!", 
-  })
+  // await transport.sendMail({
+  //   from: '<cahek5610@gmail.com>',
+  //   to: `${req.session.user.newUser.email}`,
+  //   subject: "Социальная аптека",
+  //   text: "Поздравляем! Регистрация прошла успешно!",
+  // })
   res.sendStatus(200);
 });
 
@@ -60,7 +60,5 @@ apiAuthRouter.get('/logout', (req, res) => {
   res.clearCookie('sId');
   res.sendStatus(200);
 });
-
-
 
 export default apiAuthRouter;

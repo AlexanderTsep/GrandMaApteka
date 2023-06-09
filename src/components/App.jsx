@@ -6,14 +6,14 @@ import SingUpPage from './pages/SingUpPage';
 import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 
-export default function App({ userData, cards }) {
+export default function App({ userData, cards, currentUser }) {
   return (
     <div className="container">
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <Routes>
-        <Route path="/" element={<HomePage cards={cards} />} />
+        <Route path="/" element={<HomePage cards={cards} currentUser={currentUser} />} />
         <Route path="/auth/signup" element={<SingUpPage />} />
-        <Route path="/auth/singin" element={<SingInPage />} />
+        <Route path="/auth/signin" element={<SingInPage />} />
         <Route path="/account" element={<AccountPage userData={userData} />} />
       </Routes>
     </div>
