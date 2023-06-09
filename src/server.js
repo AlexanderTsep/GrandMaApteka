@@ -18,7 +18,7 @@ const FileStore = store(session);
 const sessionConfig = {
   name: 'user_sid',
   secret: process.env.SESSION_SECRET ?? 'test',
-  resave: true,
+  resave: false,
   store: new FileStore(),
   saveUninitialized: false,
   cookie: {

@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const cards = await Medecine.findAll();
+  console.log(res.session)
   const initState = { cards };
   res.render('Layout', initState);
 });
