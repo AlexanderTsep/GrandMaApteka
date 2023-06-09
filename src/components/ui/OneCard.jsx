@@ -18,7 +18,7 @@ export default function OneCard({ cards, user }) {
         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
         border: '1px solid black',
         borderRadius: '10px',
-        backgroundColor: '#66ffff',
+
         padding: '0.5rem',
         height: '35rem',
         marginBottom: '1rem',
@@ -40,6 +40,7 @@ export default function OneCard({ cards, user }) {
             borderLeft: '1px solid black',
             borderRight: '1px solid black',
             borderTop: '1px solid black',
+            borderBottom: '1px solid black',
           }}
         />
       </div>
@@ -67,6 +68,7 @@ export default function OneCard({ cards, user }) {
           borderLeft: '1px solid black',
           borderRight: '1px solid black',
           borderBottom: '1px solid black',
+          borderTop: '1px solid black',
           backgroundColor: '#ffffff',
           marginBottom: '0.5rem',
           borderRadius: '10px',
@@ -75,7 +77,6 @@ export default function OneCard({ cards, user }) {
       >
         <div
           style={{
-            border: '1px solid #ccc',
             borderRadius: '10px',
             padding: '1rem',
             marginBottom: '0.5rem',
