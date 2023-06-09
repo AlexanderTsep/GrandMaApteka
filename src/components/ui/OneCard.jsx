@@ -115,7 +115,7 @@ export default function OneCard({ cards }) {
               className="card-title"
               style={{ fontSize: '1.5rem', color: '#198754', fontWeight: 'bold', margin: 0 }}
             >
-              {cards.price - cards.price * randomValue()} руб
+              {cards.price - cards.price} руб
             </h6>
             <p style={{ color: '#198754', margin: 0 }}>Цена со скидкой</p>
           </div>

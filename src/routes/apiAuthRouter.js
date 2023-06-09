@@ -45,7 +45,7 @@ apiAuthRouter.post('/signin', async (req, res) => {
       where: { email },
     });
     if (!currentUser || (await bcrypt.compare(currentUser.password, password))) {
-      return res.status(401).json({ message: 'email  exists' });
+      return res.status(401).json({ message: 'email not exists' });
     }
     req.session.user = {
       id: currentUser.id,

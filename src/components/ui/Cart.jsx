@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 
-export default function Cart({ trashState, setTrashState }) {
+export default function Cart({ trashState, setTrashState, message }) {
+  console.log('--------', trashState);
   const deleteHandler = async (id) => {
     const response = await axios.delete(`/api/trash/${id}`);
     setTrashState((prev) => prev.filter((el) => el.id !== id));
@@ -10,15 +11,17 @@ export default function Cart({ trashState, setTrashState }) {
     <div className="col-md-5 col-lg-4 order-md-last">
       <h4 className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-primary">Корзина</span>
-        <span className="badge bg-primary rounded-pill">{trashState.length}</span>
+        <span className="badge bg-primary rounded-pill">{trashState?.length}</span>
       </h4>
+      {message && (
+        <div className="alert alert-danger" role="alert">
+          {message}
+        </div>
+      )}
       <ul className="list-group mb-3">
         <>
-          {trashState.map((el) => (
-            <li
-              className="list-group-item d-flex justify-content-between lh-sm"
-              key={el.id}
-            >
+          {trashState?.map((el) => (
+            <li className="list-group-item d-flex justify-content-between lh-sm" key={el.id}>
               <div>
                 <h6 className="my-0">• {el.name}</h6>
                 <small className="text-body-secondary">{el.description.slice(0, 50) + '...'}</small>
@@ -42,7 +45,7 @@ export default function Cart({ trashState, setTrashState }) {
         </>
         <li className="list-group-item d-flex justify-content-between">
           <span>Всего (Руб.)</span>
-          <strong>₽{trashState.reduce((acc, el) => acc + el.price, 0)}</strong>
+          <strong>₽{trashState?.reduce((acc, el) => acc + el.price, 0)}</strong>
         </li>
       </ul>
 
