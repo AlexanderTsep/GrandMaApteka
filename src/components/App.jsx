@@ -7,7 +7,7 @@ import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 import CartPage from './pages/CartPage';
 
-export default function App({ user, userData, cards, trashData }) {
+export default function App({user, userData, cards, trashData, message }) {
   const [trashState, setTrashState] = useState(trashData);
   return (
     <div className="container">
@@ -17,7 +17,7 @@ export default function App({ user, userData, cards, trashData }) {
         <Route path="/auth/signup" element={<SingUpPage />} />
         <Route path="/auth/signin" element={<SingInPage />} />
         <Route path="/account" element={<AccountPage userData={userData} />} />
-        <Route path="/cart" element={<CartPage trashState={trashState} setTrashState={setTrashState} />} />
+        <Route path="/cart" element={<CartPage trashState={trashState} setTrashState={setTrashState} message={message} />} />
       </Routes>
     </div>
   );

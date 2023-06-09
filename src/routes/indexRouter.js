@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const cards = await Medecine.findAll();
-  console.log(res.session)
+  console.log(res.session);
   const initState = { cards };
   res.render('Layout', initState);
 });
@@ -26,10 +26,15 @@ router.get('/account', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   try {
-    const trashData = await Medecine.findAll({ where: { id: req.session.trash } });
-    console.log('-------', trashData);
-    const initState = { trashData };
-    res.render('Layout', initState);
+    if (req.session.trash) {
+      const trashData = await Medecine.findAll({ where: { id: req.session.trash } });
+      console.log('-------', trashData);
+      const initState = { trashData };
+      res.render('Layout', initState);
+    } else {
+      const initState = { message: 'Корзина пуста' };
+      res.render('Layout', initState);
+    }
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
