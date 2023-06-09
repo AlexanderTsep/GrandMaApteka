@@ -7,11 +7,11 @@ import SingInPage from './pages/SingInPage';
 import AccountPage from './pages/AccountPage';
 import CartPage from './pages/CartPage';
 
-export default function App({ userData, cards, trashData }) {
+export default function App({ user, userData, cards, trashData }) {
   const [trashState, setTrashState] = useState(trashData);
   return (
     <div className="container">
-      <Navbar user={userData} />
+      <Navbar user={user} />
       <Routes>
         <Route path="/" element={<HomePage cards={cards} />} />
         <Route path="/auth/signup" element={<SingUpPage />} />
