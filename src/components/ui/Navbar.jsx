@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function Navbar({ userData }) {
+export default function Navbar({ user }) {
   const submitHandler = (e) => {
     e.preventDefault();
   };

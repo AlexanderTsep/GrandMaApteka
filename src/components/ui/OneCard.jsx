@@ -128,7 +128,7 @@ export default function OneCard({ cards }) {
           style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
         >
           В корзину
-        </button>
+        </a>
       </div>
     </div>
   );
