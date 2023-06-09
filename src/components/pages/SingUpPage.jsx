@@ -21,13 +21,14 @@ export default function SingUpPage() {
   return (
     <form onSubmit={submitHandler}>
       <div className="form-group">
-        <label htmlFor="exampleInputUserName1">Имя</label>
+        <label htmlFor="exampleInputUserName1">Имя
         <input
           name="userName"
           className="form-control"
           id="exampleInputUserName1"
           placeholder="введите имя"
         />
+        </label>
       </div>
       <div className="form-group">
         <label htmlFor="exampleInputSecondName1">Фамилия</label>

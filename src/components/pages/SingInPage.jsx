@@ -19,22 +19,27 @@ export default function SingInPage() {
   return (
     <form onSubmit={(e) => submitHandler(e)}>
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1">Email</label>
-        <input
-          name="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          placeholder="введите email"
-        />
+        <label htmlFor="exampleInputEmail1">
+          Email
+          <input
+            name="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="введите email"
+          />
+        </label>
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1">Пароль</label>
-        <input
-          name="password"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="введите пароль"
-        />
+        <label htmlFor="exampleInputPassword1">
+          Пароль
+          <input
+            name="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="введите пароль"
+            width="300"
+          />
+        </label>
       </div>
       <button type="submit" className="btn btn-outline-primary">
         войти
