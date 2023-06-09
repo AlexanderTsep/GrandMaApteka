@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function SignUpPage() {
+export default function SingUpPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
@@ -19,59 +19,49 @@ export default function SignUpPage() {
   };
 
   return (
-    <form onSubmit={(e) => submitHandler(e)}>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Имя
-        </label>
+    <form onSubmit={submitHandler}>
+      <div className="form-group">
+        <label htmlFor="exampleInputUserName1">Имя</label>
         <input
           name="userName"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputUserName1"
           placeholder="введите имя"
         />
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Фамилия
-        </label>
+      <div className="form-group">
+        <label htmlFor="exampleInputSecondName1">Фамилия</label>
         <input
           name="secondName"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputSecondName1"
           placeholder="введите фамилию"
         />
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Пол
-        </label>
+      <div className="form-group">
+        <label htmlFor="exampleInputSex1">Пол</label>
         <input
           name="sex"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputSex1"
           placeholder="введите пол"
         />
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Email
-        </label>
+      <div className="form-group">
+        <label htmlFor="exampleInputEmail1">Email</label>
         <input
           name="email"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputEmail1"
           placeholder="введите email"
         />
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Пароль
-        </label>
+      <div className="form-group">
+        <label htmlFor="exampleInputPassword1">Пароль</label>
         <input
           name="password"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputPassword1"
           placeholder="введите пароль"
         />
       </div>
