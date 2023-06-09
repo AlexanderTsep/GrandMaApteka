@@ -15,7 +15,7 @@ export default function Navbar({ user }) {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid" onSubmit={(e) => submitHandler(e)}>
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             <img src="/logotip.png" alt="Bootstrap" width="180" height="100"></img>
           </a>
         </div>
