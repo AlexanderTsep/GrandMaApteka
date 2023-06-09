@@ -20,7 +20,8 @@ export default function OneCard({ cards }) {
         borderRadius: '10px',
         backgroundColor: '#66ffff',
         padding: '0.5rem',
-        height: '700px',
+        height: '35rem',
+        marginBottom: '1rem',
       }}
     >
       <div
@@ -50,7 +51,7 @@ export default function OneCard({ cards }) {
         <h4
           className="card-title"
           style={{
-            fontSize: '1.5rem',
+            fontSize: '1.1rem',
             fontWeight: 'bold',
             margin: 0,
             padding: '0.5rem',
@@ -78,10 +79,10 @@ export default function OneCard({ cards }) {
             borderRadius: '10px',
             padding: '1rem',
             marginBottom: '0.5rem',
-            height: '300px',
+            height: '150px',
           }}
         >
-          <p className="card-text" style={{ fontSize: '1rem', margin: 0 }}>
+          <p className="card-text" style={{ fontSize: '0.7rem', margin: 0 }}>
             {cards.description}
           </p>
         </div>
@@ -114,7 +115,7 @@ export default function OneCard({ cards }) {
               className="card-title"
               style={{ fontSize: '1.5rem', color: '#198754', fontWeight: 'bold', margin: 0 }}
             >
-              666.25 руб
+              {cards.price - cards.price * randomValue()} руб
             </h6>
             <p style={{ color: '#198754', margin: 0 }}>Цена со скидкой</p>
           </div>
@@ -124,10 +125,10 @@ export default function OneCard({ cards }) {
           disabled={disable}
           onClick={clickhandler}
           className="btn btn-primary"
-          style={{ fontSize: '1rem', padding: '0.5rem 1rem' }}
+          style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
         >
           В корзину
-        </a>
+        </button>
       </div>
     </div>
   );

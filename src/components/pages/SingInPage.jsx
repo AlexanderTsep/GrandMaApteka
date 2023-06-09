@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function SignInPage() {
+export default function SingInPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
     if (!data.email || !data.password) return null;
     axios
-      .post('/auth/signin', data)
+      .post('/api/auth/signin', data)
       .then((res) => {
         window.location = '/';
       })
@@ -19,28 +19,26 @@ export default function SignInPage() {
   return (
     <form onSubmit={(e) => submitHandler(e)}>
       <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Email
-        </label>
+        <label htmlFor="exampleInputEmail1">Email</label>
         <input
-          type="email"
+          name="email"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputEmail1"
           placeholder="введите email"
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Пароль
-        </label>
+        <label htmlFor="exampleInputPassword1">Пароль</label>
         <input
-          type="password"
+          name="password"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputPassword1"
           placeholder="введите пароль"
         />
       </div>
-      <button type="button" class="btn btn-outline-primary">войти</button>
+      <button type="submit" className="btn btn-outline-primary">
+        войти
+      </button>
     </form>
   );
 }
