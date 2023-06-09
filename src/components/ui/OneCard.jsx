@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function OneCard({ cards }) {
+export default function OneCard({ cards, user }) {
   const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
@@ -71,10 +71,8 @@ export default function OneCard({ cards }) {
       </div>
       <div
         style={{
-          padding: '0.5rem',
-          borderLeft: '1px solid black',
-          borderRight: '1px solid black',
-          borderBottom: '1px solid black',
+          padding: '0.1rem',
+          border: '1px solid black',
           backgroundColor: '#ffffff',
           marginBottom: '0.5rem',
           borderRadius: '10px',
@@ -83,10 +81,8 @@ export default function OneCard({ cards }) {
       >
         <div
           style={{
-            border: '1px solid #ccc',
             borderRadius: '10px',
-            padding: '1rem',
-            marginBottom: '0.5rem',
+            padding: '0.2rem',
             height: '150px',
           }}
         >
@@ -128,16 +124,18 @@ export default function OneCard({ cards }) {
             <p style={{ color: '#198754', margin: 0 }}>Цена со скидкой</p>
           </div>
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            clickHandler();
-          }}
-          className="btn btn-primary"
-          style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
-        >
-          В корзину
-        </button>
+        {user && (
+          <button
+            type="button"
+            onClick={() => {
+              clickHandler();
+            }}
+            className="btn btn-primary"
+            style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
+          >
+            В корзину
+          </button>
+        )}
       </div>
     </div>
   );

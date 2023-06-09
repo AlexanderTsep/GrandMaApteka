@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import OneCard from '../ui/OneCard';
 
-export default function HomePage({ cards }) {
+export default function HomePage({ cards, user }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const cardsPerPage = 3;
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedAvailability, setSelectedCAvailability] = useState();
+
+  const cardsPerPage = 6;
   const totalCards = cards.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
 
-  const startIndex = (currentPage - 1) * cardsPerPage;
-  const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
+  let filteredCards = cards;
+  if (selectedCategory) {
+    filteredCards = cards.filter((card) => card.catId === selectedCategory);
+  }
 
-  const cardsToDisplay = cards.slice(startIndex, endIndex);
+  if (selectedAvailability) {
+    filteredCards = cards.filter((card) => card.availability === selectedAvailability);
+  }
+
+  const startIndex = (currentPage - 1) * cardsPerPage;
+  const endIndex = Math.min(startIndex + cardsPerPage, filteredCards.length);
+
+  const cardsToDisplay = filteredCards.slice(startIndex, endIndex);
 
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -20,6 +32,14 @@ export default function HomePage({ cards }) {
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const handleCategorySelect = (id) => {
+    setSelectedCategory(id);
+  };
+
+  // const handleAvailabilitySelect = () => {
+  //   setSelectedCAvailability();
+  // };
 
   return (
     <>
@@ -34,63 +54,93 @@ export default function HomePage({ cards }) {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(null)}>
+              Все
+            </button>
+          </li>
+          <li>
+            <button className="dropdown-item" onClick={() => handleCategorySelect(1)}>
               Антибиотики
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(2)}>
               Противокашлевые средства
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(3)}>
               Витамины
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(4)}>
               Антидепрессанты
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(5)}>
               Гормоны
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(6)}>
               Диуретики
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(7)}>
               Слабительное
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(8)}>
               Суспензия
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <button className="dropdown-item" onClick={() => handleCategorySelect(9)}>
               Капли
-            </a>
+            </button>
           </li>
           <li>
-            <a className="dropdown-item" href="/categories/">
-              Контрацепция
-            </a>
+            <button
+              className="dropdown-item"
+              href="/categories/"
+              onClick={() => handleCategorySelect(10)}
+            >
+              Контрацептивы
+            </button>
           </li>
         </ul>
       </div>
-
+      {/* <div className="dropdown">
+        <button
+          className="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Наличие
+        </button>
+        <ul className="dropdown-menu">
+          <li>
+            <button className="dropdown-item" onClick={() => handleAvailabilitySelect(true)}>
+              Есть в наличии
+            </button>
+          </li>
+          <li>
+            <button className="dropdown-item" onClick={() => handleAvailabilitySelect(false)}>
+              Нет в наличии
+            </button>
+          </li>
+        </ul>
+      </div> */}
       <div>
         <div className="row">
           {cardsToDisplay.map((card) => (
             <div className="col-md-4" key={card.id}>
-              <OneCard cards={card} />
+              <OneCard cards={card} user={user} />
             </div>
           ))}
         </div>
