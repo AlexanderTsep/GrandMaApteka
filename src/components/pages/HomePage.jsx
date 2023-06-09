@@ -44,102 +44,102 @@ export default function HomePage({ cards, user }) {
 
   return (
     <>
-      <div className="dropdown">
-        <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Категории
-        </button>
-        <ul className="dropdown-menu">
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(null)}>
-              Все
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(1)}>
-              Антибиотики
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(2)}>
-              Противокашлевые средства
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(3)}>
-              Витамины
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(4)}>
-              Антидепрессанты
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(5)}>
-              Гормоны
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(6)}>
-              Диуретики
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(7)}>
-              Слабительное
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(8)}>
-              Суспензия
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleCategorySelect(9)}>
-              Капли
-            </button>
-          </li>
-          <li>
-            <button
-              className="dropdown-item"
-              href="/categories/"
-              onClick={() => handleCategorySelect(10)}
-            >
-              Контрацептивы
-            </button>
-          </li>
-        </ul>
-      </div>
       {/* <div className="dropdown">
         <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+        className="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
         >
-          Наличие
+        Наличие
         </button>
         <ul className="dropdown-menu">
-          <li>
-            <button className="dropdown-item" onClick={() => handleAvailabilitySelect(true)}>
-              Есть в наличии
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={() => handleAvailabilitySelect(false)}>
-              Нет в наличии
-            </button>
-          </li>
+        <li>
+        <button className="dropdown-item" onClick={() => handleAvailabilitySelect(true)}>
+        Есть в наличии
+        </button>
+        </li>
+        <li>
+        <button className="dropdown-item" onClick={() => handleAvailabilitySelect(false)}>
+        Нет в наличии
+        </button>
+        </li>
         </ul>
       </div> */}
       <div>
+        <Calendar />
+        <div className="dropdown">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Категории
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(null)}>
+                Все
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(1)}>
+                Антибиотики
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(2)}>
+                Противокашлевые средства
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(3)}>
+                Витамины
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(4)}>
+                Антидепрессанты
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(5)}>
+                Гормоны
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(6)}>
+                Диуретики
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(7)}>
+                Слабительное
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(8)}>
+                Суспензия
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleCategorySelect(9)}>
+                Капли
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                href="/categories/"
+                onClick={() => handleCategorySelect(10)}
+              >
+                Контрацептивы
+              </button>
+            </li>
+          </ul>
+        </div>
         <div className="row">
-          <Calendar />
           {cardsToDisplay.map((card) => (
             <div className="col-md-4" key={card.id}>
               <OneCard cards={card} user={user} />
