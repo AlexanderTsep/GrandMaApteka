@@ -17,7 +17,7 @@ export default function SingInPage() {
   };
 
   return (
-    <form onSubmit={(e) => submitHandler(e)}>
+    <form style={{ textAlign: 'center' }} onSubmit={(e) => submitHandler(e)}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1">
           Email
