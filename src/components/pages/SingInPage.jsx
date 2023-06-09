@@ -7,7 +7,7 @@ export default function SignInPage() {
     const data = Object.fromEntries(new FormData(e.target));
     if (!data.email || !data.password) return null;
     axios
-      .post('/auth/signin', data)
+      .post('/api/auth/signin', data)
       .then((res) => {
         window.location = '/';
       })
@@ -23,7 +23,7 @@ export default function SignInPage() {
           Email
         </label>
         <input
-          type="email"
+          name="email"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите email"
@@ -34,13 +34,15 @@ export default function SignInPage() {
           Пароль
         </label>
         <input
-          type="password"
+          name="password"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите пароль"
         />
       </div>
-      <button type="button" class="btn btn-outline-primary">войти</button>
+      <button type="submit" className="btn btn-outline-primary">
+        войти
+      </button>
     </form>
   );
 }
