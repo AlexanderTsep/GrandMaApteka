@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function SignInPage() {
+export default function SingInPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
@@ -19,24 +19,20 @@ export default function SignInPage() {
   return (
     <form onSubmit={(e) => submitHandler(e)}>
       <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Email
-        </label>
+        <label htmlFor="exampleInputEmail1">Email</label>
         <input
           name="email"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputEmail1"
           placeholder="введите email"
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleFormControl" className="form-label">
-          Пароль
-        </label>
+        <label htmlFor="exampleInputPassword1">Пароль</label>
         <input
           name="password"
           className="form-control"
-          id="exampleFormControl"
+          id="exampleInputPassword1"
           placeholder="введите пароль"
         />
       </div>

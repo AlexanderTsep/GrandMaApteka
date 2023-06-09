@@ -3,10 +3,6 @@ import { User } from '../../db/models';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({ hello: 'world' });
-});
-
 router.patch('/user/:id', async (req, res) => {
   try {
     const { userName, secondName, sex, email } = req.body;
