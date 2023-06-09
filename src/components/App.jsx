@@ -13,7 +13,7 @@ export default function App({user, userData, cards, trashData, message }) {
     <div className="container">
       <Navbar user={user} />
       <Routes>
-        <Route path="/" element={<HomePage cards={cards} />} />
+        <Route path="/" element={<HomePage cards={cards} user={user} />} />
         <Route path="/auth/signup" element={<SingUpPage />} />
         <Route path="/auth/signin" element={<SingInPage />} />
         <Route path="/account" element={<AccountPage userData={userData} />} />

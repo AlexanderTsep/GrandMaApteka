@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-export default function OneCard({ cards }) {
+export default function OneCard({ cards, user }) {
   const medId = cards.id;
   const [disable, setDisable] = useState(false);
   const clickhandler = async (event) => {
@@ -18,7 +18,7 @@ export default function OneCard({ cards }) {
         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
         border: '1px solid black',
         borderRadius: '10px',
-        backgroundColor: '#66ffff',
+
         padding: '0.5rem',
         height: '35rem',
         marginBottom: '1rem',
@@ -40,6 +40,7 @@ export default function OneCard({ cards }) {
             borderLeft: '1px solid black',
             borderRight: '1px solid black',
             borderTop: '1px solid black',
+            borderBottom: '1px solid black',
           }}
         />
       </div>
@@ -67,6 +68,7 @@ export default function OneCard({ cards }) {
           borderLeft: '1px solid black',
           borderRight: '1px solid black',
           borderBottom: '1px solid black',
+          borderTop: '1px solid black',
           backgroundColor: '#ffffff',
           marginBottom: '0.5rem',
           borderRadius: '10px',
@@ -75,7 +77,6 @@ export default function OneCard({ cards }) {
       >
         <div
           style={{
-            border: '1px solid #ccc',
             borderRadius: '10px',
             padding: '1rem',
             marginBottom: '0.5rem',
@@ -115,20 +116,22 @@ export default function OneCard({ cards }) {
               className="card-title"
               style={{ fontSize: '1.5rem', color: '#198754', fontWeight: 'bold', margin: 0 }}
             >
-              {cards.price - cards.price} руб
+              {cards.price - cards.price * 0.3} руб
             </h6>
             <p style={{ color: '#198754', margin: 0 }}>Цена со скидкой</p>
           </div>
         </div>
-        <a
-          type="button"
-          disabled={disable}
-          onClick={clickhandler}
-          className="btn btn-primary"
-          style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
-        >
-          В корзину
-        </a>
+        {user && (
+          <a
+            type="button"
+            disabled={disable}
+            onClick={clickhandler}
+            className="btn btn-primary"
+            style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
+          >
+            В корзину
+          </a>
+        )}
       </div>
     </div>
   );
