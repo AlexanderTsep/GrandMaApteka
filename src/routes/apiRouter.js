@@ -30,10 +30,11 @@ router.post('/trash', async (req, res) => {
 router.delete('/trash/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    console.log('id', id);
+    const deleteIndex = req.session.trash.findIndex((el) => el === Number(id));
     console.log('req.session.trash', req.session.trash);
-    const delElem = req.session.trash.splice(id, 1);
-
-    res.status(200).json(delElem);
+    const delElem = req.session.trash.splice(deleteIndex, 1);
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
   }

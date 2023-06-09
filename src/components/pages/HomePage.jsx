@@ -89,6 +89,7 @@ export default function HomePage({ cards }) {
 
       <div>
         <div className="row">
+          <Calendar />
           {cardsToDisplay.map((card) => (
             <div className="col-md-4" key={card.id}>
               <OneCard cards={card} />
