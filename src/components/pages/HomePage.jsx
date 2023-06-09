@@ -6,8 +6,8 @@ export default function HomePage({ cards }) {
   return (
     <div className="row">
       {cards.map((card) => (
-        <div className="col-md-4">
-          <OneCard key={card.id} cards={card} />
+        <div className="col-md-4" key={card.id}>
+          <OneCard cards={card} />
         </div>
       ))}
     </div>

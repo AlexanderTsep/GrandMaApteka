@@ -5,15 +5,16 @@ export default function SignUpPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
-    if (!data.userName || !data.sacondName || !data.sex || !data.email || !data.password)
+    console.log(data);
+    if (!data.userName || !data.secondName || !data.sex || !data.email || !data.password)
       return null;
     axios
-      .post('/auth/signup', data)
+      .post('/api/auth/signup', data)
       .then((res) => {
         window.location = '/';
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
   };
 
@@ -24,7 +25,7 @@ export default function SignUpPage() {
           Имя
         </label>
         <input
-          type="name"
+          name="userName"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите имя"
@@ -35,7 +36,7 @@ export default function SignUpPage() {
           Фамилия
         </label>
         <input
-          type="secondname"
+          name="secondName"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите фамилию"
@@ -46,7 +47,7 @@ export default function SignUpPage() {
           Пол
         </label>
         <input
-          type="sex"
+          name="sex"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите пол"
@@ -57,7 +58,7 @@ export default function SignUpPage() {
           Email
         </label>
         <input
-          type="email"
+          name="email"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите email"
@@ -68,13 +69,15 @@ export default function SignUpPage() {
           Пароль
         </label>
         <input
-          type="password"
+          name="password"
           className="form-control"
           id="exampleFormControl"
           placeholder="введите пароль"
         />
       </div>
-      <button type="button" class="btn btn-outline-primary">зарегистрироваться</button>
+      <button type="submit" className="btn btn-outline-primary">
+        зарегистрироваться
+      </button>
     </form>
   );
 }
