@@ -1,6 +1,15 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 export default function OneCard({ cards }) {
+  const medId = cards.id;
+  const [disable, setDisable] = useState(false);
+  const clickhandler = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(`/api/trash`, { medId });
+    setDisable(true);
+  };
+
   return (
     <div
       className="card"
@@ -111,7 +120,9 @@ export default function OneCard({ cards }) {
           </div>
         </div>
         <a
-          href="/"
+          type="button"
+          disabled={disable}
+          onClick={clickhandler}
           className="btn btn-primary"
           style={{ fontSize: '1rem', padding: '0.5rem 1rem' }}
         >

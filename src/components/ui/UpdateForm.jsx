@@ -16,7 +16,6 @@ export default function UpdateForm({ oneUserData, setOneUserData }) {
   const updateHandler = async (event) => {
     event.preventDefault();
     const responce = await axios.patch(`/api/user/${oneUserData.id}`, updateData);
-    console.log(responce.data);
     setOneUserData((prev) => ({ ...prev, ...responce.data }));
     setUpdateData({
       userName: oneUserData.userName,
