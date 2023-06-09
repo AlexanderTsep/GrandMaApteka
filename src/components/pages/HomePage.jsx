@@ -7,20 +7,16 @@ export default function HomePage({ cards }) {
   const totalCards = cards.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
 
-  // определить начальный и конечный индексы для карточек, которые будут отображаться на текущей странице
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
 
-  // получить только нужные карточки из массива
   const cardsToDisplay = cards.slice(startIndex, endIndex);
 
-  // генерировать массив номеров страниц
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
-  // обработчики событий для кнопок страниц
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

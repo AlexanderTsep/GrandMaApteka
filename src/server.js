@@ -9,28 +9,27 @@ import authRouter from './routes/authRouter';
 import apiRouter from './routes/apiRouter';
 import apiAuthRouter from './routes/apiAuthRouter';
 
-const FileStore = store(session);
+require('dotenv').config();
 
 const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
-
+const FileStore = store(session);
 
 const sessionConfig = {
-  name: 'sId',
+  name: 'user_sid',
   secret: process.env.SESSION_SECRET ?? 'test',
-  resave: false,
+  resave: true,
   store: new FileStore(),
   saveUninitialized: false,
-  app.engine('jsx', jsxRender);
-  app.set('view engine', 'jsx');
-  app.set('views', path.join(__dirname, 'components'));
   cookie: {
     maxAge: 1000 * 60 * 60 * 12,
     httpOnly: true,
   },
 };
-require('dotenv').config();
 
+app.engine('jsx', jsxRender);
+app.set('view engine', 'jsx');
+app.set('views', path.join(__dirname, 'components'));
 
 app.use(express.static('public'));
 app.use(morgan('dev'));
@@ -50,7 +49,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-// app.use('/api/auth', apiRouter);
+app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', apiAuthRouter);
 

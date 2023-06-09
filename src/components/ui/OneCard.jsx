@@ -12,7 +12,6 @@ export default function OneCard({ cards }) {
   }, [cards.availability]);
 
   const clickHandler = () => {};
-
   function randomValue() {
     const values = [1, 0.1, 0.2, 0.3];
     const randomIndex = Math.floor(Math.random() * values.length);
