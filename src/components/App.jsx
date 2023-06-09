@@ -9,7 +9,7 @@ import AccountPage from './pages/AccountPage';
 export default function App({ userData, cards, currentUser }) {
   return (
     <div className="container">
-      <Navbar currentUser={currentUser} />
+      <Navbar user={userData} />
       <Routes>
         <Route path="/" element={<HomePage cards={cards} currentUser={currentUser} />} />
         <Route path="/auth/signup" element={<SingUpPage />} />

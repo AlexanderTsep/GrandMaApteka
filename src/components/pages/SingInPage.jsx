@@ -22,7 +22,6 @@ export default function SingInPage() {
         <label htmlFor="exampleInputEmail1">Email</label>
         <input
           name="email"
-          type="email"
           className="form-control"
           id="exampleInputEmail1"
           placeholder="введите email"
@@ -32,13 +31,12 @@ export default function SingInPage() {
         <label htmlFor="exampleInputPassword1">Пароль</label>
         <input
           name="password"
-          type="password"
           className="form-control"
           id="exampleInputPassword1"
           placeholder="введите пароль"
         />
       </div>
-      <button type="submit" class="btn btn-outline-primary">
+      <button type="submit" className="btn btn-outline-primary">
         войти
       </button>
     </form>

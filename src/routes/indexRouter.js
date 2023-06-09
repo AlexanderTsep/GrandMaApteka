@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
 
 router.get('/account', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { id: 1 } });
+    const id = req.session.user.id;
+    const userData = await User.findOne({ where: { id } });
     const initState = { userData };
     res.render('Layout', initState);
   } catch (error) {

@@ -1,24 +1,27 @@
 const nodemailer = require('nodemailer');
 
-const transport = nodemailer.createTransport(
-  {
-    host: 'smtp.gmail.com',
+const sendResponse = (req) => {
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.yandex.ru',
     port: 465,
     secure: true,
     auth: {
-      user: 'cahek5610@gmail.com',
-      pass: 'eisWRxqd01',
+      user: 'bdel991@yandex.ru',
+      pass: 'Balonka1!',
     },
-  },
-  {
-    from: 'Mailer test <cahek5610@gmail.com',
-  },
-);
+  });
+  transporter.sendMail(
+    {
+      from: 'bdel991@yandex.ru',
+      to: req.email,
+      subject: 'Социальная аптека',
+      text: 'Регистрация прошла успешно.',
+    },
+    (err, info) => {
+      if (err) console.log('=====>err', err);
+      console.log('Email sent: ', info);
+    },
+  );
+};
 
-// const mailer = (message) => {
-//   transport.sendMail(message, (err, info) => {
-//     if (err) return console.log(err);
-//     console.log('Письмо отправлено: ', info);
-//   });
-
-module.exports = transport;
+module.exports = sendResponse;

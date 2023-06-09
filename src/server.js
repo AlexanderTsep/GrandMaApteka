@@ -6,7 +6,8 @@ import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import authRouter from './routes/authRouter';
-// import apiRouter from './routes/apiRouter';
+import apiRouter from './routes/apiRouter';
+import apiAuthRouter from './routes/apiAuthRouter';
 
 const FileStore = store(session);
 
@@ -41,9 +42,16 @@ app.use((req, res, next) => {
   res.locals.path = req.originalUrl;
   next();
 });
+app.use((req, res, next) => {
+  if (req.session.user) {
+    res.locals.user = req.session.user;
+  }
+  next();
+});
 
 app.use('/', indexRouter);
 // app.use('/api/auth', apiRouter);
 app.use('/auth', authRouter);
+app.use('/api/auth', apiAuthRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

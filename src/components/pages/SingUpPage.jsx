@@ -5,6 +5,7 @@ export default function SingUpPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
     if (!data.userName || !data.secondName || !data.sex || !data.email || !data.password)
       return null;
     axios
@@ -13,7 +14,7 @@ export default function SingUpPage() {
         window.location = '/';
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
   };
 
@@ -23,7 +24,6 @@ export default function SingUpPage() {
         <label htmlFor="exampleInputUserName1">Имя</label>
         <input
           name="userName"
-          type="text"
           className="form-control"
           id="exampleInputUserName1"
           placeholder="введите имя"
@@ -33,7 +33,6 @@ export default function SingUpPage() {
         <label htmlFor="exampleInputSecondName1">Фамилия</label>
         <input
           name="secondName"
-          type="text"
           className="form-control"
           id="exampleInputSecondName1"
           placeholder="введите фамилию"
@@ -43,7 +42,6 @@ export default function SingUpPage() {
         <label htmlFor="exampleInputSex1">Пол</label>
         <input
           name="sex"
-          type="text"
           className="form-control"
           id="exampleInputSex1"
           placeholder="введите пол"
@@ -52,7 +50,6 @@ export default function SingUpPage() {
       <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email</label>
         <input
-          type="email"
           name="email"
           className="form-control"
           id="exampleInputEmail1"
@@ -62,7 +59,6 @@ export default function SingUpPage() {
       <div className="form-group">
         <label htmlFor="exampleInputPassword1">Пароль</label>
         <input
-          type="password"
           name="password"
           className="form-control"
           id="exampleInputPassword1"
