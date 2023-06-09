@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function Navbar({ userData }) {
+export default function Navbar({ user }) {
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -14,9 +14,11 @@ export default function Navbar({ userData }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid" onSubmit={(e) => submitHandler(e)}>
-        <a className="navbar-brand" href="/">
-          LOGO
-        </a>
+        <div className="container">
+          <a className="navbar-brand" href="#">
+            <img src="/logotip.png" alt="Bootstrap" width="180" height="100"></img>
+          </a>
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -30,21 +32,29 @@ export default function Navbar({ userData }) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link" href="/auth/signup">
-              SignUp
-            </a>
-            <a className="nav-link" href="/auth/signin">
-              SignIn
-            </a>
-            <a className="nav-link" href="/account">
-              My account
-            </a>
-            <a className="nav-link" href="/cart">
-              Корзина
-            </a>
-            <a className="nav-link" href="#" onClick={logoutHeandler}>
-              LogOut
-            </a>
+            {user && (
+              <>
+                <a className="nav-link" href="/account">
+                  Личный кабинет
+                </a>
+                <a className="nav-link" href="#" onClick={logoutHeandler}>
+                  Выход
+                </a>
+                <a className="nav-link" href="/cart">
+                  Корзина
+                </a>
+              </>
+            )}
+            {!user && (
+              <>
+                <a className="nav-link" href="/auth/signup">
+                  Регистрация
+                </a>
+                <a className="nav-link" href="/auth/signin">
+                  Вход
+                </a>
+              </>
+            )}
           </div>
         </div>
       </div>

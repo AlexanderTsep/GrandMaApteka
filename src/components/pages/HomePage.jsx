@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import OneCard from '../ui/OneCard';
+import Calendar from '../ui/myCalendar';
 
 export default function HomePage({ cards, user }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -138,6 +139,7 @@ export default function HomePage({ cards, user }) {
       </div> */}
       <div>
         <div className="row">
+          <Calendar />
           {cardsToDisplay.map((card) => (
             <div className="col-md-4" key={card.id}>
               <OneCard cards={card} user={user} />

@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
-export default function OneCard({ cards, user }) {
-  const [isActive, setIsActive] = useState(true);
-
-  useEffect(() => {
-    if (cards.availability === false) {
-      setIsActive(false);
-    } else {
-      setIsActive(true);
-    }
-  }, [cards.availability]);
-
-  const clickHandler = () => {};
-  function randomValue() {
-    const values = [1, 0.1, 0.2, 0.3];
-    const randomIndex = Math.floor(Math.random() * values.length);
-    return values[randomIndex];
-  }
+export default function OneCard({ cards }) {
+  const medId = cards.id;
+  const [disable, setDisable] = useState(false);
+  const clickhandler = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(`/api/trash`, { medId });
+    setDisable(true);
+  };
 
   return (
     <div
@@ -119,23 +111,21 @@ export default function OneCard({ cards, user }) {
               className="card-title"
               style={{ fontSize: '1.5rem', color: '#198754', fontWeight: 'bold', margin: 0 }}
             >
-              {cards.price - cards.price * randomValue()} руб
+              {cards.price - cards.price} руб
             </h6>
             <p style={{ color: '#198754', margin: 0 }}>Цена со скидкой</p>
           </div>
         </div>
-        {user && (
-          <button
-            type="button"
-            onClick={() => {
-              clickHandler();
-            }}
-            className="btn btn-primary"
-            style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
-          >
-            В корзину
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => {
+            clickHandler();
+          }}
+          className="btn btn-primary"
+          style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', alignItems: 'center' }}
+        >
+          В корзину
+        </button>
       </div>
     </div>
   );
